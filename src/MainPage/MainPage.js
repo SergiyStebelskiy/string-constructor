@@ -11,6 +11,7 @@ const MainPage = () => {
   const [defaultRandomPartsLength, setDefaultRandomPartsLength] = useState(null)
   const [successParts, setSuccessParts] = useState([])
   const [errorParts, setErrorParts] = useState([])
+  const [isDropped, setIsDropped] = useState(false)
   const handleResetString = () => {
     setData(null)
     setRandomParts([])
@@ -33,6 +34,7 @@ const MainPage = () => {
   }
 
   const onDragEnd = (wordId, dropId) => {
+    setIsDropped(true)
     if (wordId === dropId) {
       setRandomParts(randomParts.filter(e => e !== dropId))
       setSuccessParts(successParts => [...successParts, dropId])
@@ -86,12 +88,12 @@ const MainPage = () => {
                 ))}
               </div>
             )}
-          {defaultRandomPartsLength === successParts.length && (
+          {defaultRandomPartsLength === successParts.length && isDropped && (
             <span className={s.successMessage}>
               Congratulations, you won :)
             </span>
           )}
-          {defaultRandomPartsLength === errorParts.length && (
+          {defaultRandomPartsLength === errorParts.length && isDropped && (
             <span className={s.errorMessage}>
               Sorry you lost, don't be discouraged :)
             </span>
