@@ -1,0 +1,56 @@
+.mainWrap{
+  width: 100%;
+  .parts, .words{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    width: 100%;
+    padding: 20px 20px 8px;
+    border: 1px solid gray;
+
+  }
+  .words{
+    border: none;
+    padding-left: 0;
+  }
+  .part, .hashPart{
+    font-size: 24px;
+    display: block;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    padding: 4px 6px;
+    border-radius: 4px;
+  }
+  .hashPart{
+    border: 1px solid rgba(black, .15);
+    background: rgba(black, .1);
+
+    &.error{
+      border: 1px solid red;
+      background: rgba(red, .7);
+    }
+  }
+  .part{
+    &.success{
+      border: 1px solid green;
+      background: rgba(green, .7);
+    }
+  }
+  .word{
+    margin-bottom: 12px;
+    margin-right: 12px;
+
+  }
+  .successMessage, .errorMessage{
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    margin-top: 20px;
+  }
+  .errorMessage{
+    color: red;
+  }
+  .successMessage{
+    color: green;
+  }
+}
